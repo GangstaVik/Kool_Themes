@@ -1,325 +1,231 @@
 /**
- * AuroraVoid.theme.css
- * Inspired by https://w.wallhaven.cc/full/3q/wallhaven-3qqlzv.png
- * For BetterDiscord / Vencord custom CSS
+ * @name Kazemi Vision
+ * @author GangstaVik (Based on ClearVision Team)
+ * @version 1.0.0
+ * @description Cyberpunk-inspired theme based on ClearVision with custom Kazemi palette.
+ * @source https://github.com/gangstavik/Kool_Themes
+ * @website https://gangstavik.github.io/Kool_Themes
  */
 
-/* === USER CONFIG === */
+/* IMPORT CSS BASE */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* KAZEMI SETTINGS */
 :root {
-  /* Wallpaper */
-  --av-bg-image: url("https://gangstavik.github.io/Kool_Themes/imgs/wallhaven-3qqlzv.png");
-
-  /* Core palette (taken from the artwork) */
-  --av-bg-dark: #050816;       /* near‑black blue */
-  --av-bg-mid:  #0b1120;       /* deep navy */
-  --av-accent-cyan:  #22d3ee;  /* neon cyan */
-  --av-accent-pink:  #ec4899;  /* pink highlight */
-  --av-accent-purple:#6366f1;  /* indigo/purple glow */
-
-  /* Text colors */
-  --av-text-main:   #e5e7eb;
-  --av-text-muted:  #9ca3af;
-
-  /* Rounding / borders */
-  --av-radius-lg:   18px;
-  --av-radius-md:   12px;
-  --av-border-subtle: 1px solid rgba(148, 163, 184, 0.25);
+  /* KAZEMI ACCENT COLORS - Cyberpunk Palette */
+  --main-color: #22d3ee; /* cyan accent [default: #2780e6] */
+  --hover-color: #06b6d4; /* darker cyan hover [default: #1e63b3] */
+  --success-color: #10b981; /* emerald green success [default: #43b581] */
+  --danger-color: #ef4444; /* red danger [default: #982929] */
+  
+  /* STATUS COLORS - Kazemi Style */
+  --online-color: #10b981; /* emerald online [default: #43b581] */
+  --idle-color: #f59e0b; /* amber idle [default: #faa61a] */
+  --dnd-color: #ef4444; /* red dnd [default: #982929] */
+  --streaming-color: #a855f7; /* purple streaming [default: #593695] */
+  --offline-color: #6b7280; /* gray offline [default: #808080] */
+  
+  /* APP BACKGROUND - KAZEMI WALLPAPER */
+  --background-shading-percent: 100%; /* shading amount [default: 100%] */
+  --background-image: url(https://gangstavik.github.io/Kool_Themes/imgs/kazemi.png); /* Kazemi wallpaper */
+  --background-position: center; /* position [default: center] */
+  --background-size: cover; /* size [default: cover] */
+  --background-attachment: fixed; /* attachment [default: fixed] */
+  --background-filter: saturate(1.1) brightness(1.05) contrast(1.05); /* slight enhancement for Kazemi colors */
+  
+  /* USER POPOUT BACKGROUND */
+  --user-popout-image: var(--background-image); /* use Kazemi wallpaper */
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter) blur(3px); /* slight blur on popout */
+  
+  /* USER MODAL BACKGROUND */
+  --user-modal-image: var(--background-image); /* use Kazemi wallpaper */
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter) blur(5px); /* blur on modal */
+  
+  /* HOME ICON - Optional: keep Discord default or customize */
+  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
+  --home-size: cover;
+  
+  /* FONTS */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: "JetBrains Mono", Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+  
+  /* CHANNEL COLORS - Kazemi Cyan Theme */
+  --channel-normal: #cbd5e1; /* slate-300 normal */
+  --channel-muted: #64748b; /* slate-500 muted */
+  --channel-hover: #ffffff; /* white hover */
+  --channel-selected: #ffffff; /* white selected */
+  --channel-selected-bg: linear-gradient(90deg, rgba(34, 211, 238, 0.35), rgba(99, 102, 241, 0.20)); /* cyan-purple gradient */
+  --channel-unread: #22d3ee; /* cyan unread */
+  --channel-unread-hover: #06b6d4; /* darker cyan hover */
+  
+  /* ACCESSIBILITY */
+  --focus-color: #22d3ee; /* cyan focus outline */
 }
 
-/* === APP BACKGROUND === */
-.appMount-3lHmkl,  /* base app */
-.app_b1f720 {      /* new client wrapper */
-  background: radial-gradient(circle at 0% 0%, rgba(34,211,238,0.08), transparent 55%),
-              radial-gradient(circle at 100% 100%, rgba(99,102,241,0.10), transparent 55%),
-              var(--av-bg-dark) !important;
+/* KAZEMI THEME SPECIFIC SHADING */
+
+/* LIGHT THEME (Not recommended for Kazemi - dark wallpaper) */
+:is(.theme-light, .theme-dark .theme-light) {
+  --background-shading: rgba(252, 252, 252, 0.3);
+  --card-shading: rgba(252, 252, 252, 0.3);
+  --popout-shading: rgba(252, 252, 252, 0.7);
+  --modal-shading: rgba(252, 252, 252, 0.5);
+  --input-shading: rgba(0, 0, 0, 0.3);
+  --normal-text: #1f2937;
+  --muted-text: #6b7280;
 }
 
-.appMount-3lHmkl::before,
-.app_b1f720::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.92)),
-    var(--av-bg-image) center/cover no-repeat fixed;
-  opacity: 0.8;
-  z-index: -1;
+/* ASH THEME - Recommended for Kazemi */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(5, 8, 22, 0.50); /* Kazemi dark blue tint */
+  --card-shading: rgba(15, 23, 42, 0.40); /* Kazemi slate tint */
+  --popout-shading: rgba(15, 23, 42, 0.85); /* more opaque for readability */
+  --modal-shading: rgba(15, 23, 42, 0.75); /* modal overlay */
+  --input-shading: rgba(15, 23, 42, 0.70); /* input background */
+  --normal-text: #ffffff; /* pure white for contrast */
+  --muted-text: #cbd5e1; /* slate-300 for muted */
 }
 
-/* === SERVER LIST (LEFT RAIL) === */
-.guilds-2JjMmN {
-  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(5,8,22,0.98)) !important;
-  border-right: var(--av-border-subtle);
+/* DARK THEME - Alternative Kazemi Style */
+:is(.theme-darker, .theme-light .theme-darker) {
+  --background-shading: rgba(5, 8, 22, 0.65); /* darker overlay */
+  --card-shading: rgba(15, 23, 42, 0.50); /* darker cards */
+  --popout-shading: rgba(15, 23, 42, 0.90); /* darker popout */
+  --modal-shading: rgba(5, 8, 22, 0.80); /* darker modal */
+  --input-shading: rgba(15, 23, 42, 0.75); /* darker input */
+  --normal-text: #ffffff;
+  --muted-text: #cbd5e1;
 }
 
-.guilds-2JjMmN .listItem-3SmSlK,
-.guilds-2JjMmN .wrapper-38slSD {
-  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+/* ONYX THEME - Maximum Contrast for Kazemi */
+:is(.theme-midnight, .theme-light .theme-midnight) {
+  --background-shading: rgba(0, 0, 0, 0.75); /* heavy dark overlay */
+  --card-shading: rgba(15, 23, 42, 0.65); /* heavy card shading */
+  --popout-shading: rgba(5, 8, 22, 0.95); /* almost opaque popout */
+  --modal-shading: rgba(0, 0, 0, 0.85); /* heavy modal */
+  --input-shading: rgba(15, 23, 42, 0.80); /* heavy input */
+  --normal-text: #ffffff;
+  --muted-text: #e2e8f0;
 }
 
-.guilds-2JjMmN .blobContainer-ikKyfs svg foreignObject {
-  mask: none !important;
-  border-radius: 999px !important;
-}
+/* KAZEMI CUSTOM ENHANCEMENTS */
 
-.guilds-2JjMmN .wrapper-38slSD:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 0 10px rgba(34,211,238,0.55);
-}
-
-/* Selected server pill accent */
-.item_f9d377[aria-selected="true"] {
-  background: linear-gradient(180deg, var(--av-accent-cyan), var(--av-accent-purple)) !important;
-}
-
-/* === CHANNEL LIST === */
-.sidebar_ded4b5,
-.sidebar-1tnWFu {
-  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(11,17,32,0.98)) !important;
-  border-right: var(--av-border-subtle);
-}
-
-.containerDefault_f6f816 .name-28HaxV,
-.mainContent-20q_Hp {
-  color: var(--av-text-muted);
-}
-
-.modeSelected-3DmyhH .mainContent-20q_Hp,
-.modeSelected-3DmyhH .name-28HaxV {
-  color: var(--av-text-main) !important;
-}
-
-.modeSelected-3DmyhH,
-.modeSelected-3DmyhH:hover {
-  background: linear-gradient(90deg,
-              rgba(34,211,238,0.18),
-              rgba(99,102,241,0.06)) !important;
-  border-radius: 0 999px 999px 0;
-}
-
-/* Unread / mention pills */
-.unread-36eUEm {
-  background: var(--av-accent-cyan) !important;
-}
-.numberBadge-37OJ3S,
-.mention_dd9233 {
-  background: linear-gradient(135deg, var(--av-accent-pink), var(--av-accent-purple)) !important;
-}
-
-/* === TITLE BAR & TOP STRIP === */
-.titleBar-1it3bQ,
-.container-ZMc96U {
-  background: linear-gradient(90deg, rgba(5,8,22,0.98), rgba(11,17,32,0.96)) !important;
-  border-bottom: var(--av-border-subtle);
-}
-
-/* === CHAT BACKGROUND === */
-.chat_f75fb0,
-.chat-2ZfjoI,
-.chatContent-3KubbW {
-  background: radial-gradient(circle at top left, rgba(34,211,238,0.10), transparent 55%),
-              radial-gradient(circle at bottom right, rgba(236,72,153,0.10), transparent 55%),
-              rgba(5,8,22,0.92) !important;
-}
-
-/* Message area “cards” */
-.message-2CShn3,
-.cozyMessage-1DWF9U {
-  background: radial-gradient(circle at top left,
-                rgba(15,23,42,0.98),
-                rgba(5,8,22,0.98));
-  border-radius: var(--av-radius-md);
-  border: 1px solid rgba(15,23,42,0.9);
-  margin-inline: 8px;
-  padding-inline: 10px;
-}
-
-/* subtle cyan/pink glow on hover */
+/* Soft white glow on hover instead of cyan */
 .message-2CShn3:hover {
-  box-shadow:
-    0 0 0 1px rgba(34,211,238,0.30),
-    0 0 24px rgba(236,72,153,0.22);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.12) !important;
 }
 
-/* === TEXT COLORS === */
-.markup-eYLPri,
-.markup-2BOw-j {
-  color: var(--av-text-main);
+/* Username glow */
+.username-h_Y3Us,
+.author-3SbO0T {
+  text-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.8) !important;
 }
 
-.username-1A8OIy,
-.header-2jRmjb {
-  color: #e0f2fe;
+/* Links with cyan glow */
+.anchor-1MIwyf {
+  color: var(--main-color) !important;
+  text-shadow: 0 0 6px rgba(34, 211, 238, 0.35) !important;
 }
 
-/* timestamps & metadata */
-.timestamp-6-ptG3,
-.metadata-3WGS0M,
-.hljs-comment {
-  color: var(--av-text-muted);
+.anchor-1MIwyf:hover {
+  color: #ec4899 !important; /* pink hover */
+  text-shadow: 0 0 10px rgba(236, 72, 153, 0.45) !important;
 }
 
-/* === TEXT INPUT / COMPOSER === */
-.channelTextArea-1FufC0,
-.form-3gdLxP {
-  background: linear-gradient(180deg, rgba(5,8,22,0.98), rgba(11,17,32,0.98)) !important;
-  border-radius: var(--av-radius-lg) var(--av-radius-lg) 0 0;
-  border-top: var(--av-border-subtle);
+/* Selected channel with gradient background */
+[class*="selected"][class*="channel"] {
+  background: linear-gradient(90deg, 
+    rgba(34, 211, 238, 0.35), 
+    rgba(99, 102, 241, 0.20)
+  ) !important;
+  border-left: 3px solid var(--main-color) !important;
 }
 
-.scrollableContainer-15eg7h {
-  background: rgba(15,23,42,0.9) !important;
-  border-radius: var(--av-radius-lg);
-  border: var(--av-border-subtle);
+/* Input focus with cyan accent */
+.channelTextArea-1VQBuV:focus-within {
+  border-color: rgba(34, 211, 238, 0.60) !important;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.25) !important;
 }
 
-.placeholder-1_mJY1,
-.slateTextArea-1Mkdgw {
-  color: var(--av-text-muted) !important;
-}
-
-/* Send button accent */
-.button-3AYNKb,
-.button-38aScr {
-  background: linear-gradient(135deg, var(--av-accent-cyan), var(--av-accent-purple)) !important;
-  border-radius: 999px !important;
-}
-
-/* === MEMBERS LIST (RIGHT) === */
-.container-2o3qEW,
-.membersWrap-3NUR2t {
-  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(5,8,22,0.98)) !important;
-  border-left: var(--av-border-subtle);
-}
-
-.member-2gU6Ar,
-.member-48YF_l {
-  background: transparent;
-  border-radius: var(--av-radius-md);
-}
-
-.member-2gU6Ar:hover,
-.member-48YF_l:hover {
-  background: radial-gradient(circle at left,
-              rgba(34,211,238,0.20),
-              transparent 70%);
-}
-
-/* === SCROLLBARS === */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
+/* Scrollbar with slate gradient */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg,
-              rgba(34,211,238,0.65),
-              rgba(99,102,241,0.65));
-  border-radius: 999px;
+    rgba(148, 163, 184, 0.55),
+    rgba(100, 116, 139, 0.55)
+  ) !important;
+  border-radius: 10px !important;
 }
 
-/* === SETTINGS MODAL / POPUPS === */
-.layer-86YKbF,
-.standardSidebarView-3F1I7i,
-.contentRegion-3HkfJJ {
-  background: radial-gradient(circle at top right,
-              rgba(34,211,238,0.16),
-              transparent 60%),
-              rgba(5,8,22,0.98) !important;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,
+    rgba(148, 163, 184, 0.75),
+    rgba(100, 116, 139, 0.75)
+  ) !important;
+  box-shadow: 0 0 8px rgba(148, 163, 184, 0.30) !important;
 }
 
-.contentRegionScroller-2_GT_N,
-.sidebarRegionScroller-FXiQOh {
-  background: transparent !important;
+/* Buttons with cyan-pink gradient */
+.lookFilled-yCfaCM.colorBrand-I6CyqQ {
+  background: linear-gradient(135deg, 
+    var(--main-color), 
+    #ec4899
+  ) !important;
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.35) !important;
 }
 
-.rootWithShadow-2hdL2J,
-.root-8LYsGj {
-  background: radial-gradient(circle at top left,
-              rgba(15,23,42,0.96),
-              rgba(5,8,22,0.98)) !important;
-  border-radius: var(--av-radius-lg);
-  border: var(--av-border-subtle);
-  box-shadow:
-    0 18px 60px rgba(15,23,42,0.9),
-    0 0 0 1px rgba(15,23,42,1);
+.lookFilled-yCfaCM.colorBrand-I6CyqQ:hover {
+  box-shadow: 
+    0 0 20px rgba(34, 211, 238, 0.55),
+    0 0 35px rgba(236, 72, 153, 0.35) !important;
+  transform: translateY(-2px) !important;
 }
 
-/* === USER PANEL (BOTTOM LEFT) === */
-.panels-3wFtMD {
-  background: linear-gradient(90deg,
-              rgba(5,8,22,0.98),
-              rgba(11,17,32,0.98)) !important;
-  border-top: var(--av-border-subtle);
+/* Code blocks with cyan accent */
+code.inline {
+  background: rgba(15, 23, 42, 0.80) !important;
+  border: 1px solid rgba(148, 163, 184, 0.40) !important;
+  color: var(--main-color) !important;
+  text-shadow: 0 0 6px rgba(34, 211, 238, 0.35) !important;
 }
 
-.container-1zzFcN,
-.wrapper-3Hk9OB {
-  background: transparent !important;
+/* Embeds with cyan border */
+.embedFull-1HGV2S {
+  border-left: 4px solid var(--main-color) !important;
+  background: rgba(15, 23, 42, 0.60) !important;
 }
 
-.avatarWrapper-1B9FTW:hover {
-  box-shadow: 0 0 18px rgba(34,211,238,0.6);
-  border-radius: 999px;
+/* Avatar subtle glow */
+.avatar-2e8lTP img {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.18) !important;
 }
 
-/* === BUTTON HIGHLIGHTS === */
-.lookFilled-1H2Jvj.colorBrand-2M3O3N,
-.buttonColor-7qQbGO {
-  background: linear-gradient(135deg, var(--av-accent-cyan), var(--av-accent-pink)) !important;
-  border-radius: 999px !important;
+/* Reactions */
+.reaction-3vwAF2:hover {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
 }
 
-.lookOutlined-3sRXeN.colorBrand-2M3O3N {
-  border-color: var(--av-accent-cyan) !important;
-  color: var(--av-accent-cyan) !important;
+/* Better text shadows for readability on dark Kazemi wallpaper */
+* {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7) !important;
 }
 
-/* Hover glow for primary actions */
-.lookFilled-1H2Jvj.colorBrand-2M3O3N:hover {
-  box-shadow:
-    0 0 18px rgba(34,211,238,0.7),
-    0 0 28px rgba(236,72,153,0.4);
+/* Remove text shadow from images and specific elements */
+img,
+video,
+canvas,
+[class*="emoji"],
+svg {
+  text-shadow: none !important;
 }
 
-/* === MISC CLEANUPS === */
-
-/* Remove default borders where the gradient + subtle border looks better */
-.container-1eFtFS,
-.chat-2ZfjoI {
-  border-radius: 0;
-  border: none !important;
-}
-
-/* Reduce reaction / reply chips visual noise */
-.reaction-2A2y9y {
-  background: rgba(15,23,42,0.9);
-  border-radius: 999px;
-  border: 1px solid rgba(148,163,184,0.35);
-}
-.reaction-2A2y9y:hover {
-  border-color: var(--av-accent-cyan);
-}
-
-/* Code blocks to match neon cyan + purple */
-.hljs,
-.codeBlockText-1V8x17 {
-  background: radial-gradient(circle at top left,
-              rgba(15,23,42,1),
-              rgba(5,8,22,1)) !important;
-  border-radius: var(--av-radius-md);
-  border: 1px solid rgba(15,23,42,1);
-}
-
-/* Links in chat use cyan accent */
-.markup-eYLPri a {
-  color: var(--av-accent-cyan);
-}
-.markup-eYLPri a:hover {
-  color: var(--av-accent-pink);
-}
+/* ADD ADDITIONAL KAZEMI CSS BELOW HERE */
