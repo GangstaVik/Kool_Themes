@@ -1,0 +1,325 @@
+/**
+ * AuroraVoid.theme.css
+ * Inspired by https://w.wallhaven.cc/full/3q/wallhaven-3qqlzv.png
+ * For BetterDiscord / Vencord custom CSS
+ */
+
+/* === USER CONFIG === */
+:root {
+  /* Wallpaper */
+  --av-bg-image: url("https://w.wallhaven.cc/full/3q/wallhaven-3qqlzv.png");
+
+  /* Core palette (taken from the artwork) */
+  --av-bg-dark: #050816;       /* near‑black blue */
+  --av-bg-mid:  #0b1120;       /* deep navy */
+  --av-accent-cyan:  #22d3ee;  /* neon cyan */
+  --av-accent-pink:  #ec4899;  /* pink highlight */
+  --av-accent-purple:#6366f1;  /* indigo/purple glow */
+
+  /* Text colors */
+  --av-text-main:   #e5e7eb;
+  --av-text-muted:  #9ca3af;
+
+  /* Rounding / borders */
+  --av-radius-lg:   18px;
+  --av-radius-md:   12px;
+  --av-border-subtle: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* === APP BACKGROUND === */
+.appMount-3lHmkl,  /* base app */
+.app_b1f720 {      /* new client wrapper */
+  background: radial-gradient(circle at 0% 0%, rgba(34,211,238,0.08), transparent 55%),
+              radial-gradient(circle at 100% 100%, rgba(99,102,241,0.10), transparent 55%),
+              var(--av-bg-dark) !important;
+}
+
+.appMount-3lHmkl::before,
+.app_b1f720::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.92)),
+    var(--av-bg-image) center/cover no-repeat fixed;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+/* === SERVER LIST (LEFT RAIL) === */
+.guilds-2JjMmN {
+  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(5,8,22,0.98)) !important;
+  border-right: var(--av-border-subtle);
+}
+
+.guilds-2JjMmN .listItem-3SmSlK,
+.guilds-2JjMmN .wrapper-38slSD {
+  transition: transform 120ms ease-out, box-shadow 120ms ease-out;
+}
+
+.guilds-2JjMmN .blobContainer-ikKyfs svg foreignObject {
+  mask: none !important;
+  border-radius: 999px !important;
+}
+
+.guilds-2JjMmN .wrapper-38slSD:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(34,211,238,0.55);
+}
+
+/* Selected server pill accent */
+.item_f9d377[aria-selected="true"] {
+  background: linear-gradient(180deg, var(--av-accent-cyan), var(--av-accent-purple)) !important;
+}
+
+/* === CHANNEL LIST === */
+.sidebar_ded4b5,
+.sidebar-1tnWFu {
+  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(11,17,32,0.98)) !important;
+  border-right: var(--av-border-subtle);
+}
+
+.containerDefault_f6f816 .name-28HaxV,
+.mainContent-20q_Hp {
+  color: var(--av-text-muted);
+}
+
+.modeSelected-3DmyhH .mainContent-20q_Hp,
+.modeSelected-3DmyhH .name-28HaxV {
+  color: var(--av-text-main) !important;
+}
+
+.modeSelected-3DmyhH,
+.modeSelected-3DmyhH:hover {
+  background: linear-gradient(90deg,
+              rgba(34,211,238,0.18),
+              rgba(99,102,241,0.06)) !important;
+  border-radius: 0 999px 999px 0;
+}
+
+/* Unread / mention pills */
+.unread-36eUEm {
+  background: var(--av-accent-cyan) !important;
+}
+.numberBadge-37OJ3S,
+.mention_dd9233 {
+  background: linear-gradient(135deg, var(--av-accent-pink), var(--av-accent-purple)) !important;
+}
+
+/* === TITLE BAR & TOP STRIP === */
+.titleBar-1it3bQ,
+.container-ZMc96U {
+  background: linear-gradient(90deg, rgba(5,8,22,0.98), rgba(11,17,32,0.96)) !important;
+  border-bottom: var(--av-border-subtle);
+}
+
+/* === CHAT BACKGROUND === */
+.chat_f75fb0,
+.chat-2ZfjoI,
+.chatContent-3KubbW {
+  background: radial-gradient(circle at top left, rgba(34,211,238,0.10), transparent 55%),
+              radial-gradient(circle at bottom right, rgba(236,72,153,0.10), transparent 55%),
+              rgba(5,8,22,0.92) !important;
+}
+
+/* Message area “cards” */
+.message-2CShn3,
+.cozyMessage-1DWF9U {
+  background: radial-gradient(circle at top left,
+                rgba(15,23,42,0.98),
+                rgba(5,8,22,0.98));
+  border-radius: var(--av-radius-md);
+  border: 1px solid rgba(15,23,42,0.9);
+  margin-inline: 8px;
+  padding-inline: 10px;
+}
+
+/* subtle cyan/pink glow on hover */
+.message-2CShn3:hover {
+  box-shadow:
+    0 0 0 1px rgba(34,211,238,0.30),
+    0 0 24px rgba(236,72,153,0.22);
+}
+
+/* === TEXT COLORS === */
+.markup-eYLPri,
+.markup-2BOw-j {
+  color: var(--av-text-main);
+}
+
+.username-1A8OIy,
+.header-2jRmjb {
+  color: #e0f2fe;
+}
+
+/* timestamps & metadata */
+.timestamp-6-ptG3,
+.metadata-3WGS0M,
+.hljs-comment {
+  color: var(--av-text-muted);
+}
+
+/* === TEXT INPUT / COMPOSER === */
+.channelTextArea-1FufC0,
+.form-3gdLxP {
+  background: linear-gradient(180deg, rgba(5,8,22,0.98), rgba(11,17,32,0.98)) !important;
+  border-radius: var(--av-radius-lg) var(--av-radius-lg) 0 0;
+  border-top: var(--av-border-subtle);
+}
+
+.scrollableContainer-15eg7h {
+  background: rgba(15,23,42,0.9) !important;
+  border-radius: var(--av-radius-lg);
+  border: var(--av-border-subtle);
+}
+
+.placeholder-1_mJY1,
+.slateTextArea-1Mkdgw {
+  color: var(--av-text-muted) !important;
+}
+
+/* Send button accent */
+.button-3AYNKb,
+.button-38aScr {
+  background: linear-gradient(135deg, var(--av-accent-cyan), var(--av-accent-purple)) !important;
+  border-radius: 999px !important;
+}
+
+/* === MEMBERS LIST (RIGHT) === */
+.container-2o3qEW,
+.membersWrap-3NUR2t {
+  background: linear-gradient(180deg, rgba(5,8,22,0.96), rgba(5,8,22,0.98)) !important;
+  border-left: var(--av-border-subtle);
+}
+
+.member-2gU6Ar,
+.member-48YF_l {
+  background: transparent;
+  border-radius: var(--av-radius-md);
+}
+
+.member-2gU6Ar:hover,
+.member-48YF_l:hover {
+  background: radial-gradient(circle at left,
+              rgba(34,211,238,0.20),
+              transparent 70%);
+}
+
+/* === SCROLLBARS === */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,
+              rgba(34,211,238,0.65),
+              rgba(99,102,241,0.65));
+  border-radius: 999px;
+}
+
+/* === SETTINGS MODAL / POPUPS === */
+.layer-86YKbF,
+.standardSidebarView-3F1I7i,
+.contentRegion-3HkfJJ {
+  background: radial-gradient(circle at top right,
+              rgba(34,211,238,0.16),
+              transparent 60%),
+              rgba(5,8,22,0.98) !important;
+}
+
+.contentRegionScroller-2_GT_N,
+.sidebarRegionScroller-FXiQOh {
+  background: transparent !important;
+}
+
+.rootWithShadow-2hdL2J,
+.root-8LYsGj {
+  background: radial-gradient(circle at top left,
+              rgba(15,23,42,0.96),
+              rgba(5,8,22,0.98)) !important;
+  border-radius: var(--av-radius-lg);
+  border: var(--av-border-subtle);
+  box-shadow:
+    0 18px 60px rgba(15,23,42,0.9),
+    0 0 0 1px rgba(15,23,42,1);
+}
+
+/* === USER PANEL (BOTTOM LEFT) === */
+.panels-3wFtMD {
+  background: linear-gradient(90deg,
+              rgba(5,8,22,0.98),
+              rgba(11,17,32,0.98)) !important;
+  border-top: var(--av-border-subtle);
+}
+
+.container-1zzFcN,
+.wrapper-3Hk9OB {
+  background: transparent !important;
+}
+
+.avatarWrapper-1B9FTW:hover {
+  box-shadow: 0 0 18px rgba(34,211,238,0.6);
+  border-radius: 999px;
+}
+
+/* === BUTTON HIGHLIGHTS === */
+.lookFilled-1H2Jvj.colorBrand-2M3O3N,
+.buttonColor-7qQbGO {
+  background: linear-gradient(135deg, var(--av-accent-cyan), var(--av-accent-pink)) !important;
+  border-radius: 999px !important;
+}
+
+.lookOutlined-3sRXeN.colorBrand-2M3O3N {
+  border-color: var(--av-accent-cyan) !important;
+  color: var(--av-accent-cyan) !important;
+}
+
+/* Hover glow for primary actions */
+.lookFilled-1H2Jvj.colorBrand-2M3O3N:hover {
+  box-shadow:
+    0 0 18px rgba(34,211,238,0.7),
+    0 0 28px rgba(236,72,153,0.4);
+}
+
+/* === MISC CLEANUPS === */
+
+/* Remove default borders where the gradient + subtle border looks better */
+.container-1eFtFS,
+.chat-2ZfjoI {
+  border-radius: 0;
+  border: none !important;
+}
+
+/* Reduce reaction / reply chips visual noise */
+.reaction-2A2y9y {
+  background: rgba(15,23,42,0.9);
+  border-radius: 999px;
+  border: 1px solid rgba(148,163,184,0.35);
+}
+.reaction-2A2y9y:hover {
+  border-color: var(--av-accent-cyan);
+}
+
+/* Code blocks to match neon cyan + purple */
+.hljs,
+.codeBlockText-1V8x17 {
+  background: radial-gradient(circle at top left,
+              rgba(15,23,42,1),
+              rgba(5,8,22,1)) !important;
+  border-radius: var(--av-radius-md);
+  border: 1px solid rgba(15,23,42,1);
+}
+
+/* Links in chat use cyan accent */
+.markup-eYLPri a {
+  color: var(--av-accent-cyan);
+}
+.markup-eYLPri a:hover {
+  color: var(--av-accent-pink);
+}
