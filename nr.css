@@ -1,0 +1,374 @@
+/**
+ * @name Nightreign Vision
+ * @author GangstaVik (Based on ClearVision Team)
+ * @version 2.0.0
+ * @description Cyberpunk theme optimized for Nightreign wallpaper
+ * @source https://github.com/gangstavik/Kool_Themes
+ * @website https://gangstavik.github.io/Kool_Themes
+ */
+
+/* IMPORT CSS BASE */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* NIGHTREIGN PALETTE - Cyberpunk Optimized */
+:root {
+  /* NIGHTREIGN ACCENT COLORS */
+  --main-color: #00CFFF; /* azzurro neon primario */
+  --hover-color: #4BE4FF; /* azzurro chiaro hover */
+  --success-color: #24E38A; /* verde neon success */
+  --danger-color: #FF4B81; /* magenta-rosso critico */
+  
+  /* STATUS COLORS - Nightreign Style */
+  --online-color: #24E38A; /* verde neon online */
+  --idle-color: #FFB800; /* amber gold idle */
+  --dnd-color: #FF4B81; /* magenta-rosso dnd */
+  --streaming-color: #8B5CF6; /* purple streaming */
+  --offline-color: #5B6285; /* muted offline */
+  
+  /* APP BACKGROUND - NIGHTREIGN WALLPAPER */
+  --background-shading-percent: 100%;
+  --background-image: url(https://raw.githubusercontent.com/GangstaVik/Kool_Themes/main/imgs/nightreign.jpg);
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: saturate(1.2) brightness(0.9) contrast(1.1); /* enhance cyberpunk vibe */
+  
+  /* USER POPOUT BACKGROUND */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter) blur(2px) brightness(0.8);
+  
+  /* USER MODAL BACKGROUND */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter) blur(3px) brightness(0.75);
+  
+  /* HOME ICON */
+  --home-icon: url(https://clearvision.github.io/icons/discord.svg);
+  --home-size: cover;
+  
+  /* FONTS */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: "JetBrains Mono", Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+  
+  /* CHANNEL COLORS - Nightreign Theme */
+  --channel-normal: #E4E7F5; /* testo principale */
+  --channel-muted: #8D93B8; /* testo secondario */
+  --channel-hover: #FFFFFF; /* bianco hover */
+  --channel-selected: #FFFFFF; /* bianco selected */
+  --channel-selected-bg: linear-gradient(90deg, 
+    rgba(0, 207, 255, 0.25), 
+    rgba(75, 228, 255, 0.15)
+  ); /* gradient neon */
+  --channel-unread: #00CFFF; /* neon unread */
+  --channel-unread-hover: #4BE4FF; /* neon hover */
+  
+  /* ACCESSIBILITY */
+  --focus-color: #00CFFF; /* neon focus outline */
+}
+
+/* NIGHTREIGN THEME SHADING */
+
+/* ASH THEME - Recommended for Nightreign */
+:is(.theme-dark, .theme-light .theme-dark) {
+  --background-shading: rgba(5, 8, 20, 0.65); /* #050814 con opacità */
+  --card-shading: rgba(11, 16, 32, 0.60); /* #0B1020 con opacità */
+  --popout-shading: rgba(11, 16, 32, 0.85);
+  --modal-shading: rgba(5, 8, 20, 0.80);
+  --input-shading: rgba(11, 16, 32, 0.70);
+  --normal-text: #E4E7F5; /* testo principale */
+  --muted-text: #8D93B8; /* testo secondario */
+}
+
+/* DARKER THEME - More Contrast */
+:is(.theme-darker, .theme-light .theme-darker) {
+  --background-shading: rgba(5, 8, 20, 0.75);
+  --card-shading: rgba(11, 16, 32, 0.70);
+  --popout-shading: rgba(11, 16, 32, 0.95);
+  --modal-shading: rgba(5, 8, 20, 0.90);
+  --input-shading: rgba(11, 16, 32, 0.80);
+  --normal-text: #E4E7F5;
+  --muted-text: #8D93B8;
+}
+
+/* ONYX THEME - Maximum Readability */
+:is(.theme-midnight, .theme-light .theme-midnight) {
+  --background-shading: rgba(5, 8, 20, 0.85);
+  --card-shading: rgba(11, 16, 32, 0.80);
+  --popout-shading: rgba(5, 8, 20, 0.95);
+  --modal-shading: rgba(0, 0, 0, 0.90);
+  --input-shading: rgba(11, 16, 32, 0.85);
+  --normal-text: #FFFFFF; /* bianco puro per massimo contrasto */
+  --muted-text: #A8AED8; /* versione più chiara del muted */
+}
+
+/* NIGHTREIGN CUSTOM ENHANCEMENTS */
+
+/* === TYPOGRAPHY HIERARCHY === */
+body, .markup-2BOw-j, .messageContent-2qWWxC {
+  color: #E4E7F5 !important; /* testo principale */
+  text-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Timestamp e testo muted */
+.timestamp-p1Df1m, 
+.cozy-3raOZG .timestamp-p1Df1m,
+[class*="muted"] {
+  color: #5B6285 !important; /* super-muted */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Username con glow neon */
+.username-h_Y3Us,
+.headerText-2z4IhQ {
+  color: #E4E7F5 !important;
+  text-shadow: 
+    0 0 8px rgba(0, 207, 255, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.9) !important;
+  font-weight: 600 !important;
+}
+
+/* === MESSAGES === */
+.message-2CShn3:not(.groupStart-3Mlgv1) {
+  background: rgba(14, 23, 42, 0.45) !important; /* #0E172A con opacità */
+  backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid #1B2438 !important; /* border discreto */
+  border-radius: 10px !important;
+  margin: 4px 12px !important;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.message-2CShn3:hover:not(.groupStart-3Mlgv1) {
+  background: rgba(18, 32, 56, 0.65) !important; /* #122038 hover */
+  border: 1px solid rgba(0, 207, 255, 0.4) !important;
+  box-shadow: 
+    0 0 25px rgba(0, 207, 255, 0.3),
+    inset 0 0 20px rgba(0, 207, 255, 0.08) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* === SIDEBARS & CONTAINERS === */
+.container-1eFtFS, /* Channels */
+.sidebar-2K8pFh, /* Main sidebar */
+.privateChannels-1nO12o { /* DM list */
+  background: rgba(11, 16, 32, 0.75) !important; /* #0B1020 elevato */
+  backdrop-filter: blur(20px) saturate(160%);
+  border-right: 1px solid #1B2438 !important; /* border discreto */
+}
+
+/* Selected channel con glow neon */
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
+.containerDefault-YUSm3q.selected-3veCBZ {
+  background: linear-gradient(90deg, 
+    rgba(0, 207, 255, 0.25), 
+    rgba(75, 228, 255, 0.15)
+  ) !important;
+  border-left: 3px solid #00CFFF !important;
+  box-shadow: 
+    inset 0 0 20px rgba(0, 207, 255, 0.15),
+    0 0 15px rgba(0, 207, 255, 0.2) !important;
+}
+
+/* Channel hover */
+.wrapper-1BJsBx:not(.selected-bZ3Lue):hover .childWrapper-anI2G9 {
+  background: rgba(18, 32, 56, 0.6) !important; /* #122038 hover */
+}
+
+/* === HEADER BAR === */
+.header-2o-2hj,
+.container-1r6BKw {
+  background: rgba(11, 16, 32, 0.85) !important; /* #0B1020 */
+  backdrop-filter: blur(25px) saturate(180%);
+  border-bottom: 1px solid #1B2438 !important;
+}
+
+/* === MESSAGE INPUT === */
+.channelTextArea-1VQBuV {
+  background: rgba(14, 23, 42, 0.75) !important; /* #0E172A */
+  backdrop-filter: blur(15px);
+  border: 1.5px solid #1B2438 !important; /* border discreto */
+  border-radius: 14px !important;
+  margin: 0 16px 16px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.channelTextArea-1VQBuV:focus-within {
+  border: 1.5px solid #00CFFF !important;
+  background: rgba(14, 23, 42, 0.85) !important;
+  box-shadow: 
+    0 0 25px rgba(0, 207, 255, 0.4),
+    inset 0 0 20px rgba(0, 207, 255, 0.1) !important;
+}
+
+/* Input text */
+.slateTextArea-1Mkdgw {
+  color: #E4E7F5 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* === BUTTONS === */
+/* Primary buttons - neon gradient */
+.lookFilled-1Gx00P.colorBrand-3pXr91 {
+  background: linear-gradient(135deg, #00CFFF, #4BE4FF) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: #050814 !important; /* testo scuro su neon */
+  font-weight: 600 !important;
+  box-shadow: 
+    0 4px 15px rgba(0, 207, 255, 0.4),
+    0 0 20px rgba(0, 207, 255, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.lookFilled-1Gx00P.colorBrand-3pXr91:hover {
+  box-shadow: 
+    0 0 30px rgba(0, 207, 255, 0.7),
+    0 0 50px rgba(75, 228, 255, 0.4),
+    0 6px 20px rgba(0, 0, 0, 0.4) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+/* Secondary buttons */
+.lookOutlined-3sRXeN.colorWhite-rEQuAQ {
+  background: rgba(14, 23, 42, 0.8) !important; /* #0E172A */
+  border: 1px solid #1B2438 !important;
+  color: #E4E7F5 !important;
+}
+
+.lookOutlined-3sRXeN.colorWhite-rEQuAQ:hover {
+  background: rgba(18, 32, 56, 0.9) !important; /* #122038 */
+  border-color: rgba(0, 207, 255, 0.5) !important;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.25) !important;
+}
+
+/* === LINKS === */
+.anchor-1MIwyf,
+.markup-2BOw-j a {
+  color: #00CFFF !important;
+  text-shadow: 
+    0 0 8px rgba(0, 207, 255, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.7) !important;
+  font-weight: 500 !important;
+}
+
+.anchor-1MIwyf:hover,
+.markup-2BOw-j a:hover {
+  color: #4BE4FF !important;
+  text-shadow: 
+    0 0 12px rgba(75, 228, 255, 0.7),
+    0 0 20px rgba(75, 228, 255, 0.4) !important;
+}
+
+/* === SCROLLBARS === */
+.scrollbar-2rkZSL .thumb-2JwNFC {
+  background: linear-gradient(180deg,
+    rgba(0, 207, 255, 0.7),
+    rgba(75, 228, 255, 0.7)
+  ) !important;
+  border: 2px solid rgba(11, 16, 32, 0.4) !important;
+  border-radius: 8px !important;
+}
+
+.scrollbar-2rkZSL .thumb-2JwNFC:hover {
+  background: linear-gradient(180deg,
+    rgba(0, 207, 255, 0.9),
+    rgba(75, 228, 255, 0.9)
+  ) !important;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.5) !important;
+}
+
+/* === REACTIONS === */
+.reaction-1ELvT8 {
+  background: rgba(14, 23, 42, 0.7) !important; /* #0E172A */
+  backdrop-filter: blur(8px);
+  border: 1px solid #1B2438 !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+.reaction-1ELvT8:hover {
+  background: rgba(18, 32, 56, 0.9) !important; /* #122038 */
+  border-color: #00CFFF !important;
+  box-shadow: 0 0 15px rgba(0, 207, 255, 0.4) !important;
+  transform: scale(1.05) !important;
+}
+
+.reactionCount-2mvXRV {
+  color: #E4E7F5 !important;
+  font-weight: 500 !important;
+}
+
+/* === EMBEDS === */
+.embedFull-2tM8-- {
+  background: rgba(14, 23, 42, 0.65) !important; /* #0E172A */
+  backdrop-filter: blur(10px);
+  border-left: 4px solid #00CFFF !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* === CODE BLOCKS === */
+code.inline {
+  background: rgba(14, 23, 42, 0.8) !important; /* #0E172A */
+  border: 1px solid #1B2438 !important;
+  color: #00CFFF !important;
+  text-shadow: 0 0 6px rgba(0, 207, 255, 0.4) !important;
+  border-radius: 5px !important;
+}
+
+pre {
+  background: rgba(14, 23, 42, 0.85) !important;
+  border: 1px solid #1B2438 !important;
+  border-radius: 8px !important;
+}
+
+/* === AVATAR GLOW === */
+.avatar-2e8lTP img {
+  border-radius: 50% !important;
+  box-shadow: 
+    0 0 12px rgba(0, 207, 255, 0.4),
+    0 0 25px rgba(0, 207, 255, 0.2) !important;
+}
+
+/* === MEMBERS LIST === */
+.members-1998pB {
+  background: rgba(11, 16, 32, 0.70) !important; /* #0B1020 */
+  backdrop-filter: blur(15px) saturate(140%);
+  border-left: 1px solid #1B2438 !important;
+}
+
+/* === FIX TEXT SHADOWS === */
+/* Remove shadows from non-text elements */
+img, video, canvas, [class*="emoji"], svg, [class*="icon"] {
+  text-shadow: none !important;
+}
+
+/* === ACCESSIBILITY ENHANCEMENTS === */
+@media (prefers-reduced-motion: reduce) {
+  .message-2CShn3,
+  .lookFilled-1Gx00P,
+  .reaction-1ELvT8 {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --normal-text: #FFFFFF;
+    --muted-text: #E4E7F5;
+  }
+  
+  .message-2CShn3 {
+    background: rgba(11, 16, 32, 0.9) !important;
+    border: 2px solid #1B2438 !important;
+  }
+}
