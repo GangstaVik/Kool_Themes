@@ -1,0 +1,535 @@
+/**
+ * @name Hollow Vision
+ * @author GangstaVik (Based on ClearVision Team)
+ * @version 2.0.0
+ * @description Hollow Knight-inspired theme with silk-smooth aesthetics
+ * @source https://github.com/gangstavik/Kool_Themes
+ * @website https://gangstavik.github.io/Kool_Themes
+ */
+
+ /* IMPORT CSS BASE */
+@import url("https://clearvision.github.io/ClearVision-v7/main.css");
+@import url("https://clearvision.github.io/ClearVision-v7/betterdiscord.css");
+
+/* HOLLOW KNIGHT PALETTE - Silk Smooth Aesthetics */
+:root {
+  /* HOLLOW ACCENT COLORS */
+  --main-color: #56cefdb0; /* azzurro chiaro primario - scie di vento */
+  --hover-color: #4FB9FF; /* blu saturo intenso */
+  --success-color: #6DE3B4; /* verde acqua success */
+  --danger-color: #FF6A6A; /* rosso morbido critico */
+  --warning-color: #F5C970; /* giallo dorato CTA raro */
+  
+  /* STATUS COLORS - Hollow Style */
+  --online-color: #6DE3B4; /* verde acqua online */
+  --idle-color: #F5C970; /* giallo dorato idle */
+  --dnd-color: #FF6A6A; /* rosso morbido dnd */
+  --streaming-color: #9BE3FF; /* azzurro streaming */
+  --offline-color: #6E7A90; /* blu-grigio offline */
+  
+  /* APP BACKGROUND - HOLLOW WALLPAPER */
+  --background-shading-percent: 100%;
+  --background-image: url(https://raw.githubusercontent.com/GangstaVik/Kool_Themes/main/imgs/hollow.jpg);
+  --background-position: center;
+  --background-size: cover;
+  --background-attachment: fixed;
+  --background-filter: saturate(1.1) brightness(0.85) contrast(1.15); /* enhance mysterious vibe */
+  
+  /* USER POPOUT BACKGROUND */
+  --user-popout-image: var(--background-image);
+  --user-popout-position: var(--background-position);
+  --user-popout-size: var(--background-size);
+  --user-popout-attachment: var(--background-attachment);
+  --user-popout-filter: var(--background-filter) blur(3px) brightness(0.7);
+  
+  /* USER MODAL BACKGROUND */
+  --user-modal-image: var(--background-image);
+  --user-modal-position: var(--background-position);
+  --user-modal-size: var(--background-size);
+  --user-modal-attachment: var(--background-attachment);
+  --user-modal-filter: var(--background-filter) blur(4px) brightness(0.65);
+  
+  /* HOME ICON - Custom Hollow Icon */
+  /*--home-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%239BE3FF"><path d="M12 2L1 12h3v10h6v-6h4v6h6V12h3L12 2z"/></svg>');*/
+  --home-size: cover;
+  
+  /* FONTS */
+  --main-font: "gg sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --code-font: "JetBrains Mono", Consolas, "gg mono", "Liberation Mono", Menlo, Courier, monospace;
+  
+  /* CHANNEL COLORS - Hollow Theme */
+  --channel-normal: #E6ECF7; /* testo principale */
+  --channel-muted: #A5B1C8; /* testo secondario */
+  --channel-hover: #FFFFFF; /* bianco hover */
+  --channel-selected: #FFFFFF; /* bianco selected */
+  --channel-selected-bg: linear-gradient(90deg, 
+    rgba(155, 227, 255, 0.20), 
+    rgba(79, 185, 255, 0.10)
+  ); /* gradient azzurro silk */
+  --channel-unread: #9BE3FF; /* azzurro unread */
+  --channel-unread-hover: #4FB9FF; /* blu hover */
+  
+  /* ACCESSIBILITY */
+  --focus-color: #4FB9FF; /* blu intenso focus */
+}
+
+/* HOLLOW CUSTOM ENHANCEMENTS - Silk Smooth Design */
+
+/* === TYPOGRAPHY HIERARCHY === */
+body, .markup-2BOw-j, .messageContent-2qWWxC {
+  color: #E6ECF7 !important; /* testo principale */
+  text-shadow: 
+    0 1px 2px rgba(5, 9, 21, 0.8),
+    0 0 8px rgba(5, 9, 21, 0.4) !important;
+}
+
+/* Timestamp e testo muted */
+.timestamp-p1Df1m, 
+.cozy-3raOZG .timestamp-p1Df1m,
+[class*="muted"] {
+  color: #6E7A90 !important; /* testo disabilitato */
+  text-shadow: 0 1px 2px rgba(5, 9, 21, 0.6) !important;
+  font-weight: 400 !important;
+}
+
+/* Username con silk glow */
+.username-h_Y3Us,
+.headerText-2z4IhQ {
+  color: #E6ECF7 !important;
+  text-shadow: 
+    0 0 10px rgba(155, 227, 255, 0.3),
+    0 1px 3px rgba(5, 9, 21, 0.9) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2px !important;
+}
+
+/* === MESSAGES - Silk Cards === */
+.message-2CShn3:not(.groupStart-3Mlgv1) {
+  background: rgba(17, 27, 43, 0.60) !important; /* #111B2B superficie interattiva */
+  backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid #273449 !important; /* bordo subtle */
+  border-radius: 12px !important;
+  margin: 6px 16px !important;
+  padding: 14px 18px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  box-shadow: 
+    0 2px 12px rgba(5, 9, 21, 0.4),
+    inset 0 1px 0 rgba(155, 227, 255, 0.05) !important;
+}
+
+.message-2CShn3:hover:not(.groupStart-3Mlgv1) {
+  background: rgba(23, 35, 55, 0.75) !important; /* hover più chiaro */
+  border: 1px solid rgba(155, 227, 255, 0.4) !important;
+  box-shadow: 
+    0 0 14px rgba(155, 227, 255, 0.55),
+    0 4px 20px rgba(5, 9, 21, 0.5),
+    inset 0 1px 0 rgba(155, 227, 255, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* === SIDEBARS & CONTAINERS - Layered Depth === */
+.container-1eFtFS, /* Channels */
+.sidebar-2K8pFh, /* Main sidebar */
+.privateChannels-1nO12o { /* DM list */
+  background: rgba(12, 20, 36, 0.80) !important; /* #0C1424 background elevato */
+  backdrop-filter: blur(24px) saturate(160%);
+  border-right: 1px solid #273449 !important; /* bordo divider */
+  box-shadow: 
+    2px 0 12px rgba(5, 9, 21, 0.3),
+    inset -1px 0 0 rgba(155, 227, 255, 0.05) !important;
+}
+
+/* Selected channel con silk highlight */
+.wrapper-1BJsBx.selected-bZ3Lue .childWrapper-anI2G9,
+.containerDefault-YUSm3q.selected-3veCBZ {
+  background: linear-gradient(90deg, 
+    rgba(155, 227, 255, 0.18), 
+    rgba(79, 185, 255, 0.08)
+  ) !important;
+  border-left: 3px solid #9BE3FF !important;
+  box-shadow: 
+    inset 0 0 20px rgba(155, 227, 255, 0.12),
+    0 2px 8px rgba(155, 227, 255, 0.15) !important;
+  margin-left: 4px !important;
+}
+
+/* Channel hover */
+.wrapper-1BJsBx:not(.selected-bZ3Lue):hover .childWrapper-anI2G9 {
+  background: rgba(155, 227, 255, 0.08) !important;
+  border-left: 2px solid rgba(155, 227, 255, 0.3) !important;
+}
+
+/* === HEADER BAR - Silk Header === */
+.header-2o-2hj,
+.container-1r6BKw {
+  background: rgba(12, 20, 36, 0.90) !important; /* #0C1424 */
+  backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid #273449 !important;
+  box-shadow: 
+    0 2px 16px rgba(5, 9, 21, 0.4),
+    inset 0 1px 0 rgba(155, 227, 255, 0.06) !important;
+}
+
+/* === MESSAGE INPUT - Silk Input === */
+.channelTextArea-1VQBuV {
+  background: rgba(17, 27, 43, 0.80) !important; /* #111B2B superficie interattiva */
+  backdrop-filter: blur(18px);
+  border: 1.5px solid #273449 !important;
+  border-radius: 16px !important;
+  margin: 0 16px 20px 16px !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  box-shadow: 
+    0 2px 12px rgba(5, 9, 21, 0.3),
+    inset 0 1px 0 rgba(155, 227, 255, 0.05) !important;
+}
+
+.channelTextArea-1VQBuV:focus-within {
+  border: 1.5px solid #9BE3FF !important;
+  background: rgba(17, 27, 43, 0.90) !important;
+  box-shadow: 
+    0 0 18px rgba(155, 227, 255, 0.45),
+    0 4px 24px rgba(5, 9, 21, 0.5),
+    inset 0 1px 0 rgba(155, 227, 255, 0.1) !important;
+}
+
+/* Input text */
+.slateTextArea-1Mkdgw {
+  color: #E6ECF7 !important;
+  text-shadow: 0 1px 2px rgba(5, 9, 21, 0.6) !important;
+  line-height: 1.5 !important;
+}
+
+/* Placeholder */
+.placeholder-1_mJY1 {
+  color: #6E7A90 !important;
+  font-style: italic !important;
+}
+
+/* === BUTTONS - Silk Buttons === */
+
+/* Primary buttons - azzurro silk */
+.lookFilled-1Gx00P.colorBrand-3pXr91 {
+  background: linear-gradient(135deg, #9BE3FF, #4FB9FF) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  color: #050915 !important; /* testo scuro su azzurro */
+  font-weight: 600 !important;
+  box-shadow: 
+    0 4px 16px rgba(155, 227, 255, 0.35),
+    0 2px 8px rgba(5, 9, 21, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.lookFilled-1Gx00P.colorBrand-3pXr91::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.lookFilled-1Gx00P.colorBrand-3pXr91:hover::before {
+  left: 100%;
+}
+
+.lookFilled-1Gx00P.colorBrand-3pXr91:hover {
+  box-shadow: 
+    0 0 24px rgba(155, 227, 255, 0.6),
+    0 6px 24px rgba(5, 9, 21, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Success buttons - verde acqua */
+.lookFilled-1Gx00P.colorGreen-3y-Z79 {
+  background: linear-gradient(135deg, #6DE3B4, #4CD1A3) !important;
+  color: #050915 !important;
+  box-shadow: 0 4px 16px rgba(109, 227, 180, 0.3) !important;
+}
+
+
+/* Danger buttons - rosso morbido */
+.lookFilled-1Gx00P.colorRed-1TFJan {
+  background: linear-gradient(135deg, #FF6A6A, #FF5252) !important;
+  color: #050915 !important;
+  box-shadow: 0 4px 16px rgba(255, 106, 106, 0.3) !important;
+}
+
+/* Rare CTA buttons - giallo dorato */
+.lookFilled-1Gx00P:not(.colorBrand-3pXr91):not(.colorGreen-3y-Z79):not(.colorRed-1TFJan) {
+  background: linear-gradient(135deg, #F5C970, #E8B450) !important;
+  color: #050915 !important;
+  box-shadow: 0 4px 16px rgba(245, 201, 112, 0.4) !important;
+}
+
+/* === LINKS - Silk Links === */
+.anchor-1MIwyf,
+.markup-2BOw-j a {
+  color: #9BE3FF !important;
+  text-shadow: 
+    0 0 8px rgba(155, 227, 255, 0.4),
+    0 1px 2px rgba(5, 9, 21, 0.7) !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.2s ease !important;
+}
+
+.anchor-1MIwyf:hover,
+.markup-2BOw-j a:hover {
+  color: #4FB9FF !important;
+  text-shadow: 
+    0 0 12px rgba(79, 185, 255, 0.6),
+    0 0 20px rgba(79, 185, 255, 0.3) !important;
+  border-bottom: 1px solid #4FB9FF !important;
+}
+
+/* === SCROLLBARS - Silk Scroll === */
+.scrollbar-2rkZSL .thumb-2JwNFC {
+  background: linear-gradient(180deg,
+    rgba(155, 227, 255, 0.6),
+    rgba(79, 185, 255, 0.6)
+  ) !important;
+  border: 2px solid rgba(12, 20, 36, 0.4) !important;
+  border-radius: 6px !important;
+  transition: all 0.3s ease !important;
+}
+
+.scrollbar-2rkZSL .thumb-2JwNFC:hover {
+  background: linear-gradient(180deg,
+    rgba(155, 227, 255, 0.8),
+    rgba(79, 185, 255, 0.8)
+  ) !important;
+  box-shadow: 0 0 12px rgba(155, 227, 255, 0.4) !important;
+}
+
+/* === REACTIONS - Silk Reactions === */
+.reaction-1ELvT8 {
+  background: rgba(17, 27, 43, 0.75) !important; /* #111B2B */
+  backdrop-filter: blur(12px);
+  border: 1px solid #273449 !important;
+  border-radius: 10px !important;
+  padding: 4px 10px !important;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+.reaction-1ELvT8:hover {
+  background: rgba(23, 35, 55, 0.9) !important;
+  border-color: #9BE3FF !important;
+  box-shadow: 0 0 14px rgba(155, 227, 255, 0.55) !important;
+  transform: scale(1.06) !important;
+}
+
+.reactionCount-2mvXRV {
+  color: #E6ECF7 !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(5, 9, 21, 0.6) !important;
+}
+
+/* === EMBEDS - Silk Embeds === */
+.embedFull-2tM8-- {
+  background: rgba(17, 27, 43, 0.70) !important; /* #111B2B */
+  backdrop-filter: blur(16px);
+  border-left: 4px solid #9BE3FF !important;
+  border-radius: 10px !important;
+  box-shadow: 
+    0 4px 16px rgba(5, 9, 21, 0.4),
+    inset 0 1px 0 rgba(155, 227, 255, 0.08) !important;
+}
+
+/* === CODE BLOCKS - Silk Code === */
+code.inline {
+  background: rgba(17, 27, 43, 0.85) !important; /* #111B2B */
+  border: 1px solid #273449 !important;
+  color: #9BE3FF !important;
+  text-shadow: 0 0 6px rgba(155, 227, 255, 0.3) !important;
+  border-radius: 5px !important;
+  font-family: var(--code-font) !important;
+  padding: 2px 6px !important;
+}
+
+pre {
+  background: rgba(17, 27, 43, 0.90) !important;
+  border: 1px solid #273449 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 16px rgba(5, 9, 21, 0.4) !important;
+}
+
+/* === AVATAR GLOW - Silk Avatar === */
+.avatar-2e8lTP img {
+  border-radius: 50% !important;
+  box-shadow: 
+    0 0 14px rgba(155, 227, 255, 0.3),
+    0 0 28px rgba(155, 227, 255, 0.15) !important;
+  transition: all 0.3s ease !important;
+}
+
+.avatar-2e8lTP:hover img {
+  box-shadow: 
+    0 0 20px rgba(155, 227, 255, 0.5),
+    0 0 40px rgba(155, 227, 255, 0.25) !important;
+  transform: scale(1.02) !important;
+}
+
+/* === MEMBERS LIST === */
+.members-1998pB {
+  background: rgba(12, 20, 36, 0.75) !important; /* #0C1424 */
+  backdrop-filter: blur(20px) saturate(150%);
+  border-left: 1px solid #273449 !important;
+}
+
+/* === DIVIDERS - Silk Dividers === */
+.divider-3FBTu6 {
+  border-color: #273449 !important;
+}
+
+.divider-3FBTu6 .content-1o0f9g {
+  background: rgba(12, 20, 36, 0.80) !important;
+  color: #A5B1C8 !important;
+  border: 1px solid #273449 !important;
+  border-radius: 12px !important;
+  backdrop-filter: blur(12px);
+}
+
+/* === FIX TEXT SHADOWS === */
+img, video, canvas, [class*="emoji"], svg, [class*="icon"], [class*="button"] {
+  text-shadow: none !important;
+}
+
+/* === ACCESSIBILITY ENHANCEMENTS === */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: ease-in(0.3s) !important;
+    animation: none !important;
+  }
+  
+  .lookFilled-1Gx00P.colorBrand-3pXr91::before {
+    display: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --normal-text: #FFFFFF;
+    --muted-text: #E6ECF7;
+  }
+  
+  .message-2CShn3 {
+    background: rgba(12, 20, 36, 0.95) !important;
+    border: 2px solid #273449 !important;
+  }
+  
+  .channelTextArea-1VQBuV {
+    border: 2px solid #273449 !important;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .message-2CShn3:not(.groupStart-3Mlgv1) {
+    margin: 4px 8px !important;
+    padding: 12px 14px !important;
+    border-radius: 10px !important;
+  }
+  
+  .channelTextArea-1VQBuV {
+    margin: 0 8px 16px 8px !important;
+    border-radius: 12px !important;
+  }
+}
+
+.container-1eFtFS, 
+.sidebar-2K8pFh, 
+.privateChannels-1nO12o,
+.members-1998pB,
+.panels-2wYMyc {
+  isolation: isolate !important; /* Crea un stacking context separato */
+}
+
+/* Fix specifico per il popout emoji e menu */
+.emojiPicker-3m1S-j,
+.menu-2T6jGg,
+.contextMenu-3TYcof,
+.tooltip-14M4L7 {
+  isolation: isolate !important;
+  backdrop-filter: none !important; /* Rimuovi filter dai popout */
+  filter: none !important;
+}
+
+/* Fix per tutti i button icons */
+.button-12Fmur:not(.lookFilled-1Gx00P):not(.lookOutlined-3sRXeN) {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+.button-12Fmur:not(.lookFilled-1Gx00P):not(.lookOutlined-3sRXeN):hover {
+  background: rgba(155, 227, 255, 0.1) !important;
+  backdrop-filter: blur(8px) !important; /* Solo all'hover */
+}
+
+/* Fix per il popout emoji specifico */
+.emojiPicker-3m1S-j {
+  background: rgba(17, 27, 43, 0.95) !important; /* #111B2B */
+  border: 1px solid #273449 !important;
+  border-radius: 12px !important;
+  box-shadow: 
+    0 8px 32px rgba(5, 9, 21, 0.6),
+    0 0 24px rgba(155, 227, 255, 0.15) !important;
+}
+
+/* Header del popout emoji */
+.emojiPicker-3m1S-j .header-1nkwUo {
+  background: rgba(12, 20, 36, 0.95) !important; /* #0C1424 */
+  border-bottom: 1px solid #273449 !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+/* Categorie emoji */
+.emojiPicker-3m1S-j .category-2U57w6 {
+  background: rgba(17, 27, 43, 0.8) !important;
+  border-radius: 8px !important;
+}
+
+.emojiPicker-3m1S-j .category-2U57w6:hover {
+  background: rgba(23, 35, 55, 0.9) !important;
+}
+
+/* Fix per la search bar nel popout emoji */
+.emojiPicker-3m1S-j .searchBar-3dMhjb {
+  background: rgba(17, 27, 43, 0.8) !important;
+  border: 1px solid #273449 !important;
+  border-radius: 8px !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.emojiPicker-3m1S-j .searchBar-3dMhjb:focus-within {
+  border-color: #9BE3FF !important;
+  box-shadow: 0 0 12px rgba(155, 227, 255, 0.3) !important;
+}
+
+/* Fix per tutti i tooltip e popout */
+.tooltip-14M4L7,
+.menu-2T6jGg,
+.contextMenu-3TYcof {
+  isolation: isolate !important;
+  backdrop-filter: blur(24px) saturate(180%) !important; /* Mantieni blur ma isolato */
+  background: rgba(12, 20, 36, 0.95) !important;
+  border: 1px solid #273449 !important;
+  border-radius: 10px !important;
+  box-shadow: 
+    0 8px 32px rgba(5, 9, 21, 0.7),
+    0 0 20px rgba(155, 227, 255, 0.1) !important;
+}
+
+/* Fix per la user modal e altri overlay */
+.root-1gCeng, /* User modal */
+.layer-86YKbF:not(.baseLayer-35bLyl) { /* Tutti gli overlay tranne il base */
+  isolation: isolate !important;
+}
